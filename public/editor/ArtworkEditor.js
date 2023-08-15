@@ -1,15 +1,8 @@
-
-
-
-
-
-
-
-
-
-
 class ArtworkEditor {
     constructor(){
+
+		console.log("Welcome to FearlessHaven!")
+
     	this.app = new PIXI.Application({ width: window.screen.width, height: window.screen.height, backgroundColor: 0xFFFFFF})
       	this.graphics = new PIXI.Graphics();
       	this.app.stage.addChild(this.graphics);
