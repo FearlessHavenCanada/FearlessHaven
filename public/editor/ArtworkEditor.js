@@ -16,8 +16,8 @@ class ArtworkEditor {
 		this.mouseDown = false;
     }
 
-	submit(app){
-		const imageData = app.renderer.extract.base64(this.graphics);
+	submit(){
+		const imageData = this.app.renderer.extract.base64(this.graphics);
 
 		imageData.then(
 			result => {
@@ -61,7 +61,7 @@ class ArtworkEditor {
 				self.currentTool = new CircleTool(self.toolOverlay, self.graphics)
 			}
 			else if (event.key === 's') {
-				self.submit(self.app)
+				self.submit()
 			}
 		
 			console.log(self.toolOverlay)
@@ -106,4 +106,25 @@ class ArtworkEditor {
     }
 }
 
-new ArtworkEditor().run()
+let app = new ArtworkEditor();
+app.run()
+
+function setTool(index){
+
+	if (index == 0) {
+		app.currentTool = new DrawTool(app.toolOverlay, app.graphics)
+	} 
+	else if (index == 1) {
+		app.currentTool = new RectTool(app.toolOverlay, app.graphics)
+	}
+	else if (index == 2) {
+		app.currentTool = new LineTool(app.toolOverlay, app.graphics)
+	}
+	else if (index == 3) {
+		app.currentTool = new CircleTool(app.toolOverlay, app.graphics)
+	}
+}
+
+function submit(){
+	app.submit();
+}
