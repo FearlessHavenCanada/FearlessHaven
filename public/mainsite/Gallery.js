@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const img = document.createElement('img');
                 img.src = imageUrl;
                 img.alt = 'Artwork';
+                img.style.backgroundColor = "white";
+
+                img.width = 300;
+                img.height = 300;
+
                 gallery.appendChild(img);
             });
         })
