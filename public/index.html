@@ -1,29 +1,123 @@
 <html>
     <head>
-        <title>FearlessHaven</title>
+        <title>FearlessHaven Canada</title>
     </head>
 
     <body>
-        <div id="gallery"></div>
 
-        <script type="text/javascript">
-            document.addEventListener('DOMContentLoaded', () => {
-            const gallery = document.getElementById('gallery');
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        
 
-            fetch('/artwork') // Fetch the list of image files from the server
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(imageUrl => {
-                        const img = document.createElement('img');
-                        img.src = imageUrl;
-                        img.alt = 'Artwork';
-                        gallery.appendChild(img);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching artwork:', error);
-                });
-            });
-        </script>
+        <div id="header">
+            <img src="/mainsite/FearlessHavenCanada.png" alt="Fearless Haven Logo" width="100", height="100">
+
+
+
+            <style>
+                a {
+                    border-radius: 25px;
+                }
+
+                #makeADrawing {
+                    float: right;
+                }
+            </style>
+
+
+
+        </div>
+
+
+
+        
+
+        <div id="welcome">
+            <h1>
+                You are 
+            </h1>
+
+            <h1 id="quote">
+                
+            </h1>
+
+            <h3>
+                Welcome to FearlessHaven! Here, you can draw and share your feelings through art, all while staying anonymous. <br>
+                It's a special place for kids who want to express themselves, especially if things at home feel tough. 
+            </h3>
+
+            <style>
+                #welcome h1 {
+                    display: inline;
+                    color: white;
+                    height: 200px;
+                    line-height: 200px;
+                    font-size: 60px;
+                }
+    
+                #welcome {
+                    text-align: center;
+                    height: 50%;
+                    background-image: linear-gradient(to bottom right, rgba(78, 157, 242, 0.947), rgb(255, 58, 19));
+                }
+    
+                #welcome h3 {
+                    font-size: 20px;
+                    color: white;    
+                }
+
+                
+    
+               
+    
+    
+            </style>
+
+          
+        </div>
+
+        
+
+
+
+        <div id="gallery">
+        </div>
+
+        <script src="mainsite/WelcomeIntro.js" type="text/javascript"></script>
+        <script src="mainsite/Gallery.js" type="text/javascript"></script>
+
+        <div id="emergencyhelp">
+            <h4>
+                P.S.: Remember, if you ever need someone to talk to, <a href="https://www.kidshelpphone.ca">KidsHelpPhone</a> is here for you 24/7! <br> 
+                And if you're in immediate (right now) danger, it's okay to ask for help. Call 911 or Emergency Services right away. <br>
+                
+                Stay safe!
+            </h4>
+
+            <style>
+                #emergencyhelp {
+                    background-color: rgba(78, 157, 242, 0.947);
+                    height: 30%;
+                    font-size: 20px;
+                    text-align: center;
+                    height: 200px;
+                    line-height: 50px;
+
+                }
+
+                h4 {
+                    color: white;
+                }
+            </style>
+
+        </div>
+
     </body>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto';
+        }
+    </style>
 </html>
