@@ -1,6 +1,8 @@
 <html>
     <head>
         <title>FearlessHaven Canada</title>
+        <link rel="icon" type="image/x-icon" href="mainsite/FearlessHavenCanada.png">
+
     </head>
 
     <body>
@@ -11,21 +13,9 @@
         <div id="header">
             <img src="/mainsite/FearlessHavenCanada.png" alt="Fearless Haven Logo" width="70", height="70">
 
-            <a href="https://www.kidshelpphone.ca">
-                <button id="kidsHelpPhone">KidsHelpPhone</button>
-            </a>
+            
 
-            <style>
-
-                #kidsHelpPhone {
-                    float: right;
-                    padding: 10px 20px 10px 20px;
-                    border-radius: 50px;
-                    background-color: black;
-                    color: white;
-                    font-weight: bold;
-                }
-            </style>
+        
 
 
 
@@ -45,6 +35,9 @@
                 It's a special place for kids who want to express themselves, especially if things at home feel tough. 
             </h3>
 
+            <a href="/artworkEditor">
+                <button id="iWantToDraw">Make a drawing</button>
+            </a>
             <style>
                 #welcome h1 {
                     display: inline;
@@ -53,6 +46,8 @@
                     line-height: 200px;
                     font-size: 60px;
                 }
+
+               
     
                 #welcome {
                     text-align: center;
@@ -76,6 +71,7 @@
         </div>
 
         
+        
         <div id="gallery">
 
             <h1 id="galleryBegin">
@@ -86,9 +82,7 @@
                         text-align: center;
                         color: white;
                         margin: 0;
-                        height: 25%;
-                        top: 20%;
-                        height: 150px;
+                        height: 100%;
                         line-height: 150px;
                         font-size: 25px;
                     }
@@ -110,6 +104,32 @@
         <script src="mainsite/WelcomeIntro.js" type="text/javascript"></script>
         <script src="mainsite/Gallery.js" type="text/javascript"></script>
 
+        <div id="emergencyHelp">
+            
+            <h3>
+                If you or someone else feels unsafe or is in danger, it's okay to ask for help. Call 911 immediately. Stay safe!
+            </h3>
+
+            <style>
+                #emergencyHelp h3 {
+                    display: inline;
+                    color: white;
+                    height: 120px;
+                    font-size: 20px;
+                    margin: 0;
+                }
+    
+                #emergencyHelp {
+                    padding: 30px;
+                    text-align: center;
+                    background-color: rgba(78, 157, 242, 0.947);
+                }
+    
+            </style>
+
+          
+        </div>
+
       
 
     </body>
@@ -120,5 +140,18 @@
             padding: 0;
             margin: 0;
         }
+
+        button {
+            border-radius: 100px;
+            padding: 10px 25px 10px 25px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        
+
+        
     </style>
 </html>
