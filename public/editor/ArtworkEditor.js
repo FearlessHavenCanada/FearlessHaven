@@ -17,6 +17,9 @@ class ArtworkEditor {
     }
 
 	submit(){
+
+		alert("TODO: This needs a CAPTCHA! Those bots aren't going to stop themselves...");
+
 		const imageData = this.app.renderer.extract.base64(this.graphics);
 
 		imageData.then(
@@ -26,7 +29,7 @@ class ArtworkEditor {
 				fetch("/submitArtwork", {
 					method: 'POST',
 					headers: {
-						'Content-Type': 'text/plain', // Set the content type to plain text
+						'Content-Type': 'text/plain', 
 					},
 					body: result,
 				})
@@ -71,7 +74,6 @@ class ArtworkEditor {
 		
 		}
 		  
-		  // Add key event listeners
 		window.addEventListener('keydown', onKeyDown);
 		  
 

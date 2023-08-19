@@ -46,10 +46,10 @@ app.get('/artwork', (req, res) => {
 
 
 app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, '/public/index.html'));
+	res.sendFile(path.join(__dirname, '/public/mainsite/Home.html'));
 });
 app.get('/artworkEditor', function(req, res) {
-	res.sendFile(path.join(__dirname, '/public/ArtworkEditor.html'));
+	res.sendFile(path.join(__dirname, '/public/editor/ArtworkEditor.html'));
 });
 
 
