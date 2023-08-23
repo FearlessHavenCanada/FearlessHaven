@@ -1,29 +1,10 @@
 <html>  
-
-
-
     <head>
         <title>Artwork Editor</title>
     </head>
 
     <body>  
         
-        
-        
-        <div id="header">
-
-            <img src="/mainsite/FearlessHavenCanada.png" alt="Fearless Haven Logo" width="70", height="70">
-
-
-           
-            <style>
-                #header {
-                    border-bottom: solid grey 1px;
-                }
-                
-            </style>
-        </div>
-
         <script src="https://pixijs.download/release/pixi.js"></script>
         <script src="editor/MathUtil.js" type="text/javascript"></script>
         <script src="editor/Tool.js" type="text/javascript"></script>
@@ -32,18 +13,131 @@
         <script src="editor/RectTool.js" type="text/javascript"></script>
         <script src="editor/CircleTool.js" type="text/javascript"></script>
         <script src="editor/ArtworkEditor.js" type="text/javascript"></script>
+        
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link href="/common/common.css" rel="stylesheet">
+
+        
+        
 
 
+
+
+
+
+        <div class="dialog" id="challenge">
+
+            <div class="dialogHeader">
+
+                <h3 id="challengeText"></h3>
+
+                <button class="dialogCloseButton" onclick="removeChallenge()">
+                    
+                    
+                    
+                    <img src="/common/close.png" alt="Close" width="15px" height="15px"></img>
+
+                    
+                    
+
+                </button>
+
+
+            </div>
+
+            <div id="options">
+                
+
+            </div>
+
+            <h5 id="notARobot">Sorry, we just need to make sure you're not a robot!</h5>
+
+            <script type="text/javascript">
+
+                var challenge = document.getElementById("challenge");
+                const optionsDiv = document.getElementById("options");
+
+
+
+                function removeChallenge(){
+                    challenge.style.display = "none";
+                    optionsDiv.replaceChildren();
+                }
+
+                function showChallenge(){
+                    challenge.style.display = "block";
+                    challenge.style.width = "640px";
+                    challenge.style.height = "480px";
+
+                    fetch('/challenge')
+                        .then(response => response.json())
+                        .then(data => {
+                                document.getElementById("challengeText").innerText = data.challengeText;
+
+
+
+                                data.options.forEach(function (item, index) {
+                                    var element = document.createElement("button");
+                                    element.textContent = item;
+                                    element.className = "challengeOptions";
+                                    element.onclick = function() { 
+                                        app.submit(item, data.index);
+                                    };
+                                    optionsDiv.appendChild(element);
+                                });
+
+                            }
+                        );
+        
+    
+                }
+
+            </script>
+
+            <style>
+                
+                
+
+                #notARobot {
+                    color: darkgray;
+                    float: left;
+                }
+
+                
+
+                .challengeOptions {
+                    border-radius: 8px;
+                    display: block;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    outline: #d3d3d3 solid 1px;
+                    background-color: white;
+                    border: none;   
+                    text-align: left;
+                    margin-bottom: 5px;
+                    width: 100%;
+                }
+
+                .challengeOptions:focus {
+                    background-color: #a4eaf0;
+                    font-weight: bold;
+                }
+
+
+            </style>
+        </div>
+
+    
 
             
         <div id="tools">
-            <button class = "toolButtons" onclick="setTool(0)">Draw</button>
-            <button class = "toolButtons" onclick="setTool(1)">Rectangle</button>
-            <button class = "toolButtons" onclick="setTool(2)">Line</button>
-            <button class = "toolButtons" onclick="setTool(3)">Circle</button>
-            <button id="share" class = "toolButtons" onclick="submit()">Share!</button>
-
+            <button class = "toolButtons" onclick="app.currentTool = new DrawTool(app.toolOverlay, app.graphics)">Draw</button>
+            <button class = "toolButtons" onclick="app.currentTool = new RectTool(app.toolOverlay, app.graphics)">Rectangle</button>
+            <button class = "toolButtons" onclick="app.currentTool = new LineTool(app.toolOverlay, app.graphics)">Line</button>
+            <button class = "toolButtons" onclick="app.currentTool = new CircleTool(app.toolOverlay, app.graphics)">Circle</button>
+            <button id="share" class="toolButtons" onclick="showChallenge()">Share!</button>
             <style>
 
 
@@ -70,40 +164,37 @@
                 }
             </style>
 
+            <script>
+                var tools = document.getElementById("tools");
+                window.addEventListener("mousemove", function(event) {
+                    if(event.clientX <= 10)
+                        openTools();
+                    var toolsWidth = parseInt(tools.style.width, 10); 
+                    if(event.clientX > toolsWidth)
+                        closeTools();
+                });
+                document.getElementById("tools").addEventListener("mouseleave", function() {
+                    closeTools();
+                });
+                function openTools(){
+                    tools.style.width = "100px";
+                }
+                function closeTools(){
+                    tools.style.width = "0";
+                }
+
+            </script>
+
         </div>
+
 
 
         
       
         
-        <script>
-            var tools = document.getElementById("tools");
-            window.addEventListener("mousemove", function(event) {
-                if(event.clientX <= 10)
-                    openTools();
-                var toolsWidth = parseInt(tools.style.width, 10); 
-                if(event.clientX > toolsWidth)
-                    closeTools();
-            });
-            document.getElementById("tools").addEventListener("mouseleave", function() {
-                closeTools();
-            });
-            function openTools(){
-                tools.style.width = "100px";
-            }
-            function closeTools(){
-                tools.style.width = "0";
-            }
-            
-        </script>
+        
 
-        <style>
-            html, body {
-                font-family: 'Roboto';
-                padding: 0;
-                margin: 0;
-            }
-        </style>
+        
     </body>  
 
 

@@ -16,9 +16,8 @@ class ArtworkEditor {
 		this.mouseDown = false;
     }
 
-	submit(){
+	submit(response, index){
 
-		alert("TODO: This needs a CAPTCHA! Those bots aren't going to stop themselves...");
 
 		const imageData = this.app.renderer.extract.base64(this.graphics);
 
@@ -30,6 +29,8 @@ class ArtworkEditor {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'text/plain', 
+						'Challenge-Response': response,
+						'Challenge-Index': index
 					},
 					body: result,
 				})
@@ -48,33 +49,6 @@ class ArtworkEditor {
 
     run(){
 
-
-		var self = this;
-		function onKeyDown(event) {
-			if (event.key === 'd') {
-				self.currentTool = new DrawTool(self.toolOverlay, self.graphics)
-			} 
-			else if (event.key === 'r') {
-				self.currentTool = new RectTool(self.toolOverlay, self.graphics)
-			}
-			else if (event.key === 'l') {
-				self.currentTool = new LineTool(self.toolOverlay, self.graphics)
-			}
-			else if (event.key === 'c') {
-				self.currentTool = new CircleTool(self.toolOverlay, self.graphics)
-			}
-			else if (event.key === 's') {
-				self.submit()
-			}
-		
-			console.log(self.toolOverlay)
-			self.toolOverlay.clear()
-
-
-		
-		}
-		  
-		window.addEventListener('keydown', onKeyDown);
 		  
 
 		this.app.view.addEventListener('mousedown', event => { 
@@ -111,22 +85,3 @@ class ArtworkEditor {
 let app = new ArtworkEditor();
 app.run()
 
-function setTool(index){
-
-	if (index == 0) {
-		app.currentTool = new DrawTool(app.toolOverlay, app.graphics)
-	} 
-	else if (index == 1) {
-		app.currentTool = new RectTool(app.toolOverlay, app.graphics)
-	}
-	else if (index == 2) {
-		app.currentTool = new LineTool(app.toolOverlay, app.graphics)
-	}
-	else if (index == 3) {
-		app.currentTool = new CircleTool(app.toolOverlay, app.graphics)
-	}
-}
-
-function submit(){
-	app.submit();
-}

@@ -1,0 +1,48 @@
+html, body {
+    font-family: 'Roboto';
+    padding: 0;
+    margin: 0;
+}
+
+.actionButton {
+    border-radius: 100px;
+    padding: 7px 20px 7px 20px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.dialog {
+    display: none;
+    background-color: white;
+    border-radius: 2px;
+    left: calc(50% - 320px);
+    top: calc(50% - 240px);
+    position: fixed;
+    outline: #b1a0a0 solid 1px;
+    opacity: 1;
+    padding: 15px;
+}
+
+.dialogCloseButton {
+
+    background-color: transparent;
+    border: 1px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-left: auto;
+}
+
+.dialogCloseButton:hover {
+    background-color: lightgray;
+}
+
+.dialogHeader {
+  
+    display: flex;
+    align-items: center;
+    width: 100%;
+}

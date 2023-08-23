@@ -1,0 +1,22 @@
+{
+    "prompts": [
+        {
+            "prompt": "Which season comes after fall (autumn)?",
+            "options": ["Spring", "Fall", "Autumn", "Winter"],
+            "answer": "Winter"
+        },
+
+        {
+            "prompt": "Which fruit is yellow?",
+            "options": ["Banana", "Grapes", "Apples", "Chicken"],
+            "answer": "Banana"
+        },
+
+        {
+            "prompt": "What color is the sky on a sunny day?",
+            "options": ["Purple", "Green", "Aqua", "Blue"],
+            "answer": "Blue"
+        }
+    ]
+
+}
