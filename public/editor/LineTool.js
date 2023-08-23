@@ -28,7 +28,14 @@ class LineTool extends Tool {
 
 
         graphics.beginFill(0x000000);
-        graphics.lineStyle(15 * 2, this.color, 1);
+
+        graphics.lineStyle({
+            width: 15 * 2,
+            color: this.color,
+            cap: PIXI.LINE_CAP.ROUND,
+            join: PIXI.LINE_JOIN.ROUND
+        });
+        
         graphics.moveTo(this.startX, this.startY);
         graphics.lineTo(mouseX, mouseY);
         graphics.endFill();

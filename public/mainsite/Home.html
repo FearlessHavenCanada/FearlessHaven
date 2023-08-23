@@ -17,6 +17,9 @@
             <h2 id="f">Fearless</h2>
             <h2 id="h">Haven</h2>
 
+            <button onclick="window.location.href='https://www.kidshelpphone.ca'" id="kidsHelpPhone" class="actionButton">
+                KidsHelpPhone
+            </button>
 
 
             <style>
@@ -35,9 +38,15 @@
                     color: #FF5757;
                 }
 
+                #kidsHelpPhone {
+                    margin-left: auto;
+                }
+
               
 
             </style>
+
+       
 
         </div>
 
@@ -80,10 +89,17 @@
                     color: white;    
                 }
 
-                
-    
-               
-    
+                #quote {
+                    opacity: 1;
+                    animation: fade 2s linear;
+                    animation-iteration-count: infinite;
+                }
+
+
+                @keyframes fade {
+                  0%,100% { opacity: 0 }
+                  50% { opacity: 1 }
+                }
     
             </style>
 
