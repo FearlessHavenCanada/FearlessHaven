@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>FearlessHaven Canada</title>
+        <title>LightHouse Canada</title>
         <link rel="icon" type="image/x-icon" href="/mainsite/FearlessHavenCanada.png">
 
     </head>
@@ -14,8 +14,8 @@
         <div id="header">
             <img src="/mainsite/FearlessHavenCanada.png" alt="Fearless Haven Logo" width="70", height="70">
 
-            <h2 id="f">Fearless</h2>
-            <h2 id="h">Haven</h2>
+            <h2 id="f">Light</h2>
+            <h2 id="h">House</h2>
 
             <button onclick="window.location.href='https://www.kidshelpphone.ca'" id="kidsHelpPhone" class="actionButton">
                 KidsHelpPhone
@@ -51,22 +51,24 @@
         </div>
 
         <div id="welcome">
-            <h1>
-                You are 
-            </h1>
-
+            
             <h1 id="quote">
-                
             </h1>
 
             <h3>
-                Welcome to FearlessHaven! Here, you can draw and share your feelings through art, all while staying anonymous. <br>
+                Welcome to LightHouse! Here, you can draw and share your feelings through art, all while staying anonymous. <br>
                 It's a special place for kids who want to express themselves, especially if things at home feel tough. 
             </h3>
 
             <a href="/artworkEditor">
                 <button class="actionButton" id="iWantToDraw">Make a drawing</button>
             </a>
+
+            <h5>
+                LightHouse is a project to bring awareness to children's mental health across PDSB. It's made by students just like you. 
+            </h5>
+
+
             <style>
                 #welcome h1 {
                     display: inline;
@@ -84,7 +86,7 @@
                     background-image: linear-gradient(to bottom right, rgba(78, 157, 242, 0.947), rgb(255, 58, 19));
                 }
     
-                #welcome h3 {
+                #welcome {
                     font-size: 20px;
                     color: white;    
                 }
@@ -93,7 +95,10 @@
                     opacity: 1;
                     animation: fade 2s linear;
                     animation-iteration-count: infinite;
+                    padding-top: 30;
                 }
+
+               
 
 
                 @keyframes fade {
@@ -107,38 +112,76 @@
         </div>
 
         
-        
-        <div id="gallery">
+        <div id="galleryStrip">
 
-            <h1 id="galleryBegin">
-                What's the community drawing?
+            <div id="communityStrip">
+                <h3 id="text">What's the community drawing today?</h3>
 
                 <style>
-                    #galleryBegin {
+                    #text {
                         text-align: center;
-                        color: white;
-                        margin: 0;
+                    }
+                </style>
+            </div>
+        
+            <div id="gallery">
+
+            
+
+                <style>
+                    #gallery {
+                        background-color: white;
                         height: 100%;
-                        line-height: 150px;
-                        font-size: 25px;
+                        position: relative;
                     }
 
-                </style>
-            </h1>
+                    .artwork {
+                        outline: #89D0EE solid 4px;
+                        border-radius: 10px;
+                        position: absolute;
+                    }
 
-            <style>
-                #gallery {
-                    background-color: black;
-                }
-            </style>
+                    .artwork:hover {
+                        z-index: 1;
+                        scale: 110%;
+                        transition: 0.3s;
+                    }
+
+
+
+
+                </style>
+
 
 
 
             
+            </div>
+
+            <button id="loadMore" class="actionButton" onclick="getNextImages()">Load more</button>
+
+            <style>
+                #loadMore {
+                    margin: auto;
+                    background-color: #FF5757;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #galleryStrip {
+                    width: 100%;
+                    padding-bottom: 30px;
+                    
+                }
+            </style>
+
         </div>
 
         <script src="mainsite/WelcomeIntro.js" type="text/javascript"></script>
         <script src="mainsite/Gallery.js" type="text/javascript"></script>
+
+        <!--
 
         <div id="emergencyHelp">
             
@@ -171,7 +214,38 @@
           
         </div>
 
+         <div id="copyright">
+            
+            <h3>
+               Copyright (2023) Mohammed Baig. The LightHouse logo was made using Canva and "Hand Drawn Punta Molas Lighthouse Illustration by Sketchify Mexico"
+            </h3>
+
+            <style>
+                #copyright h3 {
+                    display: inline;
+                    color: white;
+                    height: 60px;
+                    font-size: 15px;
+                    margin: 0;
+                    font-weight: lighter;
+                }
+    
+                #copyright {
+                    padding: 8px;
+                    text-align: center;
+                    background-color: black;
+                }
+    
+            </style>
+
+
+           
+
+          
+        </div>
+
       
+    -->
 
     </body>
 

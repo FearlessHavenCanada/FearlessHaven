@@ -1,24 +1,58 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const gallery = document.getElementById('gallery');
+var index = 0;
 
-    fetch('/artwork') // Fetch the list of image files from the server
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(imageUrl => {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = 'Artwork';
-                img.style.backgroundColor = "white";
+const gallery = document.getElementById('gallery');
 
-                img.width = 300;
-                img.height = 300;
+getNextImages();
 
-                gallery.appendChild(img);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching artwork:', error);
+function getNextImages(){
+    fetch('/artwork?index=' + index)
+    .then(response => response.json())
+    .then(data => {
+
+
+        if(data.length == 0){
+            console.log("Nothing here");
+            return;
         }
-    );
-});
+
+
+        data.forEach(imageUrl => {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'Artwork';
+            img.style.backgroundColor = "white";
+
+            var aspectRatio = img.height / img.width;
+
+            var newWidth = Math.random() * 300;
+            var newHeight = aspectRatio * newWidth;
+
+            img.width = newWidth;
+            img.height = newHeight;
+
+            
+
+            
+
+            
+            img.style.left = Math.random() * (gallery.clientWidth - img.width);
+            img.style.top = Math.random() * (gallery.clientHeight - img.height);
+
+
+
+            img.className = "artwork";
+
+            gallery.appendChild(img);
+        });
+
+        index++;
+
+
+    })
+    .catch(error => {
+        console.error('Error fetching artwork:', error);
+    });
+
+}
+
 

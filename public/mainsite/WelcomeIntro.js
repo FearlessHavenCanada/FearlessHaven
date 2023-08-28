@@ -1,8 +1,11 @@
 let quote = document.getElementById("quote");
 
-let quotes = ["brave", "deserving", "awesome","Fearless!", "not alone"]
+let quotes = ["Hey there!", "مرحبًا يا من هناك", "привіт", "Salut!","Привет!", "هې هلته", "హే అక్కడ"];
 
-var i = 0
+
+quote.innerText = quotes[0]
+
+var i = 1
 
 
 setInterval(() => {
